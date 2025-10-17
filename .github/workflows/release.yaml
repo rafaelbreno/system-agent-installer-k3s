@@ -9,7 +9,7 @@ permissions:
 
 env:
   IMAGE: system-agent-installer-k3s
-  REPO: rancher
+  REPO: rafiusky
 
 jobs:
   build-linux:
@@ -49,8 +49,8 @@ jobs:
           make-target: push-image
 
           public-repo: ${{ env.REPO }}
-          public-username: ${{ env.DOCKER_USERNAME }}
-          public-password: ${{ env.DOCKER_PASSWORD }}
+          public-username: ${{ secrets.DOCKER_USERNAME }}
+          public-password: ${{ secrets.DOCKER_PASSWORD }}
           push-to-prime: false
 
   create-docker-manifest:
@@ -72,8 +72,8 @@ jobs:
           make-target: publish-manifest
 
           public-repo: ${{ env.REPO }}
-          public-username: ${{ env.DOCKER_USERNAME }}
-          public-password: ${{ env.DOCKER_PASSWORD }}
+          public-username: ${{ secrets.DOCKER_USERNAME }}
+          public-password: ${{ secrets.DOCKER_PASSWORD }}
           push-to-prime: false
 
       - name: Inspect Docker image
