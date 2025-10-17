@@ -46,7 +46,7 @@ jobs:
           GOOS: ${{ matrix.os }}
         with:
           image: ${{ env.IMAGE }}
-          tag: ${{ github.GIT_TAG }}-${{ matrix.os }}-${{ matrix.arch }}
+          tag: ${{ env.GIT_TAG }}-${{ matrix.os }}-${{ matrix.arch }}
           make-target: push-image
 
           public-repo: ${{ env.REPO }}
